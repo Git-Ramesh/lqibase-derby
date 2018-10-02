@@ -1,0 +1,32 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="ramesh (generated)" id="1538459347055-1">
+        <createTable tableName="DEPT">
+            <column name="DEPTNO" type="INTEGER">
+                <constraints primaryKey="true" primaryKeyName="PK_DEPT"/>
+            </column>
+            <column name="NAME" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ramesh (generated)" id="1538459347055-2">
+        <createTable tableName="EMP">
+            <column name="EMPNO" type="INTEGER">
+                <constraints primaryKey="true" primaryKeyName="PK_EMP"/>
+            </column>
+            <column name="NAME" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DEPTNO" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="ramesh (generated)" id="1538459347055-3">
+        <createIndex indexName="SQL181002110724081" tableName="EMP">
+            <column name="DEPTNO"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ramesh (generated)" id="1538459347055-4">
+        <addForeignKeyConstraint baseColumnNames="DEPTNO" baseTableName="EMP" constraintName="true" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="DEPTNO" referencedTableName="DEPT" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
